@@ -186,6 +186,7 @@ CAGLA BRAND WITH FADE-IN
     100%  { opacity: 1; }
 }
 
+
 /* 
 -----------------------------
 PAGES
@@ -212,7 +213,7 @@ PAGES
     background-color: white;
 }
 
-#about {
+#about-jp, #about-en {
     background-color: white;
 }
 

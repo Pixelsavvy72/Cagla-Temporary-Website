@@ -73,18 +73,16 @@ function scaleBannerVideoSize(element){
 // LANGUAGE SETTINGS
 // --------------------------------
 let langButton = document.getElementById('lang-button');
-let htmlLang = document.documentElement.language;
 let currentLang = 0; // default is 0 / japanese
 
 langButton.addEventListener('click', () => {
-    if (currentLang === 0) {
-        currentLang = 1;
-        htmlLang = "en-us";
-    } else {
-        currentLang = 0;
-        htmlLang = "jp";
-    }
+    currentLang = (currentLang === 0) ? 1 : 0;
 });
+
+
+
+
+
 
 // --------------------------------
 // NAVIGATION and PAGES
