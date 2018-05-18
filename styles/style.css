@@ -32,7 +32,7 @@ NAVBAR - TOP
     -webkit-animation-name: slide;
     -webkit-animation-duration: 1s;
     /* -webkit-animation-delay: 0.01s; */
-    /* -webkit-animation-timing-function: linear; */
+    -webkit-animation-timing-function: linear;
     -webkit-animation-direction:  forwards; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: slide 1s forwards; /* Firefox < 16 */
     -ms-animation: slide 1s forwards; /* Internet Explorer */
