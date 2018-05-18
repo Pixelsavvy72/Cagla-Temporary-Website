@@ -33,18 +33,25 @@ NAVBAR - TOP
     -moz-animation: slide 1s forwards; /* Firefox < 16 */
     -ms-animation: slide 1s forwards; /* Internet Explorer */
     -o-animation: slide 1s forwards; /* Opera < 12.1 */
-    animation: slide 1s forwards
+    animation: slide 1s forwards;
 }
 
 @keyframes slide {
     /* 0%  { transform: translate3d(0px, -100px, 0) } */
     0% { 
-        -webkit-transform: translate(0px, -100px); 
         transform: translate(0px, -100px); 
     }
     100% { 
-        -webkit-transform: translate(0px, 0px); 
         transform: translate(0px, 0px); 
+    }
+}
+@-webkit-keyframes slide {
+    /* 0%  { transform: translate3d(0px, -100px, 0) } */
+    0% { 
+        -webkit-transform: translate(0px, -100px); 
+    }
+    100% { 
+        -webkit-transform: translate(0px, 0px); 
     }
 }
 
