@@ -69,26 +69,11 @@ function scaleBannerVideoSize(element){
     });
 }
  
-// --------------------------------
-// LANGUAGE SETTINGS
-// --------------------------------
-let langButton = document.getElementById('lang-button');
-let htmlLang = document.documentElement.language;
-let currentLang = 0; // default is 0 / japanese
-
-langButton.addEventListener('click', () => {
-    if (currentLang === 0) {
-        currentLang = 1;
-        htmlLang = "en-us";
-    } else {
-        currentLang = 0;
-        htmlLang = "jp";
-    }
-});
 
 // --------------------------------
 // NAVIGATION and PAGES
 // --------------------------------
+let currentPage;
 
 let topImage = document.getElementById('topImageContainer');
 let navbarTop = document.getElementById('navbar-top');
@@ -98,29 +83,64 @@ let servicesLink = document.getElementById('services-link');
 let productsLink = document.getElementById('products-link');
 let accessLink = document.getElementById('access-link');
 let teamLink = document.getElementById('team-link')
-
+// Current link is for language button redirect.
+let currentLink;
 
 // ---------- JAPANESE -------------
 
 let aboutPage = document.getElementById('about-jp');
-let servicesPage = document.getElementById('services');
+let servicesPage = document.getElementById('services-jp');
 let productsPage = document.getElementById('products');
-let accessPage = document.getElementById('access');
-let teamPage = document.getElementById('team');
+let accessPage = document.getElementById('access-jp');
+let teamPage = document.getElementById('team-jp');
 
 
 // ---------- ENGLISH -------------
 
 let aboutPageEn = document.getElementById('about-en');
-let servicesPageEn = document.getElementById('services');
+let servicesPageEn = document.getElementById('services-en');
 let productsPageEn = document.getElementById('products');
-let accessPageEn = document.getElementById('access');
-let teamPageEn = document.getElementById('team');
+let accessPageEn = document.getElementById('access-en');
+let teamPageEn = document.getElementById('team-en');
 
 
 
 
-let currentPage;
+    // --------------------------------
+    // LANGUAGE SETTINGS
+    // --------------------------------
+let langButton = document.getElementById('lang-button');
+let currentLang = 0; // default is 0 / japanese
+
+let langButtonText = document.getElementById('button-text');
+langButtonText.textContent = "日本語 / English";
+langButton.addEventListener('click', () => {
+    currentLang === 0 ? langButtonText.textContent = "English" : langButtonText.textContent = "Japanese";
+
+    if(currentPage) {
+        
+        console.log(currentPage);
+        currentPage.classList.remove('slide-page-in');
+        currentPage.classList.remove('is-visible');
+        currentPage.classList.add('slide-page-out');
+        currentPage = null;
+    }
+
+    if (currentLang === 0) {
+        currentLang = 1;
+        document.documentElement.lang = "en-us";
+        
+    } else {
+        currentLang = 0;
+        document.documentElement.lang = "jp";
+    }
+    console.log(currentLang);
+    console.log(document.documentElement.lang);
+
+    // Change to update programatically later.
+    currentLink.click();
+});
+
 
 
 topImage.addEventListener('click', () => { 
@@ -130,106 +150,130 @@ topImage.addEventListener('click', () => {
 });
 
 teamLink.addEventListener('click', () => {
-    
-    // Remove display:none;
-    teamPage.removeAttribute('style');
+    currentLink = teamLink;
+    // If a page is open, close it.
+    if(currentPage) {
+        currentPage.classList.remove('slide-page-in');
+        currentPage.classList.remove('is-visible');
+        currentPage.classList.add('slide-page-out');
+        currentPage = null;
+    }
 
-    
-    if (!teamPage.classList.contains('is-visible')) {
+    // If the language is not Japanese, add the language    
+    if (document.documentElement.lang != "jp") {
+        aboutPage.classList.add('en-us');
+        currentPage = teamPageEn;
+    } else {
+        // Otherwise set to default (jp);
+        aboutPage.classList.remove(document.documentElement.lang);
+        currentPage = teamPage;
+    }
+
+    currentPage.removeAttribute('style');
+
+    if (!currentPage.classList.contains('is-visible')) {
         if(currentPage) {
+            currentPage.classList.remove('slide-page-out');
+            currentPage.classList.add('slide-page-in');
+            currentPage.classList.add('is-visible');
+        } else {
             currentPage.classList.remove('slide-page-in');
             currentPage.classList.remove('is-visible');
             currentPage.classList.add('slide-page-out');
             currentPage = null;
         }
-        currentPage = teamPage;
-        currentPage.classList.remove('slide-page-out');
-        currentPage.classList.add('slide-page-in');
-        currentPage.classList.add('is-visible');
-        currentPage = teamPage;
     } else {
         currentPage.classList.remove('slide-page-in');
         currentPage.classList.remove('is-visible');
         currentPage.classList.add('slide-page-out');
         currentPage = null;
-
     }
-
- 
 });
 
 aboutLink.addEventListener('click', () => {
-    if (currentLang === 0) {
-        aboutPage.removeAttribute('style');
-    
-        if (!aboutPage.classList.contains('is-visible')) {
-            if(currentPage) {
-                currentPage.classList.remove('slide-page-in');
-                currentPage.classList.remove('is-visible');
-                currentPage.classList.add('slide-page-out');
-                currentPage = null;
-            }
-            currentPage = aboutPage;
+    currentLink = aboutLink;
+    // If a page is open, close it.
+    if(currentPage) {
+        currentPage.classList.remove('slide-page-in');
+        currentPage.classList.remove('is-visible');
+        currentPage.classList.add('slide-page-out');
+        currentPage = null;
+    }
+
+    // If the language is not Japanese, add the language    
+    if (document.documentElement.lang != "jp") {
+        aboutPage.classList.add('en-us');
+        currentPage = aboutPageEn;
+    } else {
+        // Otherwise set to default (jp);
+        aboutPage.classList.remove(document.documentElement.lang);
+        currentPage = aboutPage;
+    }
+
+    currentPage.removeAttribute('style');
+
+    if (!currentPage.classList.contains('is-visible')) {
+        if(currentPage) {
             currentPage.classList.remove('slide-page-out');
             currentPage.classList.add('slide-page-in');
             currentPage.classList.add('is-visible');
-            currentPage = aboutPage;
         } else {
             currentPage.classList.remove('slide-page-in');
             currentPage.classList.remove('is-visible');
             currentPage.classList.add('slide-page-out');
             currentPage = null;
-    
         }
     } else {
-        aboutPageEn.removeAttribute('style');    
-        if (!aboutPageEn.classList.contains('is-visible')) {
-            if(currentPage) {
-                currentPage.classList.remove('slide-page-in');
-                currentPage.classList.remove('is-visible');
-                currentPage.classList.add('slide-page-out');
-                currentPage = null;
-            }
-            currentPage = aboutPageEn;
-            currentPage.classList.remove('slide-page-out');
-            currentPage.classList.add('slide-page-in');
-            currentPage.classList.add('is-visible');
-            currentPage = aboutPageEn;
-        } else {
-            currentPage.classList.remove('slide-page-in');
-            currentPage.classList.remove('is-visible');
-            currentPage.classList.add('slide-page-out');
-            currentPage = null;
-    
-        }
+        currentPage.classList.remove('slide-page-in');
+        currentPage.classList.remove('is-visible');
+        currentPage.classList.add('slide-page-out');
+        currentPage = null;
     }
 });
 
 servicesLink.addEventListener('click', () => {
-    servicesPage.removeAttribute('style');
+    currentLink = servicesLink;
+    // If a page is open, close it.
+    if(currentPage) {
+        currentPage.classList.remove('slide-page-in');
+        currentPage.classList.remove('is-visible');
+        currentPage.classList.add('slide-page-out');
+        currentPage = null;
+    }
 
-    if (!servicesPage.classList.contains('is-visible')) {
+    // If the language is not Japanese, add the language    
+    if (document.documentElement.lang != "jp") {
+        aboutPage.classList.add('en-us');
+        currentPage = servicesPageEn;
+    } else {
+        // Otherwise set to default (jp);
+        aboutPage.classList.remove(document.documentElement.lang);
+        currentPage = servicesPage;
+    }
+
+    currentPage.removeAttribute('style');
+
+    if (!currentPage.classList.contains('is-visible')) {
         if(currentPage) {
+            currentPage.classList.remove('slide-page-out');
+            currentPage.classList.add('slide-page-in');
+            currentPage.classList.add('is-visible');
+        } else {
             currentPage.classList.remove('slide-page-in');
             currentPage.classList.remove('is-visible');
             currentPage.classList.add('slide-page-out');
             currentPage = null;
         }
-        currentPage = servicesPage;
-        currentPage.classList.remove('slide-page-out');
-        currentPage.classList.add('slide-page-in');
-        currentPage.classList.add('is-visible');
-        currentPage = servicesPage;
     } else {
         currentPage.classList.remove('slide-page-in');
         currentPage.classList.remove('is-visible');
         currentPage.classList.add('slide-page-out');
         currentPage = null;
-
     }
 });
 
 productsLink.addEventListener('click', () => {
+    currentLink = productsLink;
     productsPage.removeAttribute('style');
 
     if (!productsPage.classList.contains('is-visible')) {
@@ -254,25 +298,42 @@ productsLink.addEventListener('click', () => {
 });
 
 accessLink.addEventListener('click', () => {
-    accessPage.removeAttribute('style');
+    currentLink = accessLink;
+    // If a page is open, close it.
+    if(currentPage) {
+        currentPage.classList.remove('slide-page-in');
+        currentPage.classList.remove('is-visible');
+        currentPage.classList.add('slide-page-out');
+        currentPage = null;
+    }
 
-    if (!accessPage.classList.contains('is-visible')) {
+    // If the language is not Japanese, add the language    
+    if (document.documentElement.lang != "jp") {
+        aboutPage.classList.add('en-us');
+        currentPage = accessPageEn;
+    } else {
+        // Otherwise set to default (jp);
+        aboutPage.classList.remove(document.documentElement.lang);
+        currentPage = accessPage;
+    }
+
+    currentPage.removeAttribute('style');
+
+    if (!currentPage.classList.contains('is-visible')) {
         if(currentPage) {
+            currentPage.classList.remove('slide-page-out');
+            currentPage.classList.add('slide-page-in');
+            currentPage.classList.add('is-visible');
+        } else {
             currentPage.classList.remove('slide-page-in');
             currentPage.classList.remove('is-visible');
             currentPage.classList.add('slide-page-out');
             currentPage = null;
         }
-        currentPage = accessPage;
-        currentPage.classList.remove('slide-page-out');
-        currentPage.classList.add('slide-page-in');
-        currentPage.classList.add('is-visible');
-        currentPage = accessPage;
     } else {
         currentPage.classList.remove('slide-page-in');
         currentPage.classList.remove('is-visible');
         currentPage.classList.add('slide-page-out');
         currentPage = null;
-
     }
 });

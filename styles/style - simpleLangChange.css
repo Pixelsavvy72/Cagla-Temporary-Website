@@ -209,7 +209,7 @@ PAGES
     margin-right: auto;  */
 }
 
-#team-jp, #team-en {
+#team {
     background-color: white;
 }
 
@@ -230,7 +230,7 @@ PAGES
     color: #188b41;
 }
 
-#services-jp, #services-en {
+#services {
     background-color: white;
 }
 
@@ -238,11 +238,11 @@ PAGES
     border: none; 
 }
 
-#products-jp, #products-en {
+#products {
     background-color: white;
 }
 
-#access-jp, #access-en {
+#access {
     background-color: white;
 }
 
