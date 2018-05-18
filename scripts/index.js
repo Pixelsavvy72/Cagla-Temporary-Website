@@ -115,7 +115,7 @@ let currentLang = 0; // default is 0 / japanese
 let langButtonText = document.getElementById('button-text');
 langButtonText.textContent = "日本語 / English";
 langButton.addEventListener('click', () => {
-    currentLang === 0 ? langButtonText.textContent = "English" : langButtonText.textContent = "Japanese";
+    currentLang === 0 ? langButtonText.textContent = "English" : langButtonText.textContent = "日本語";
 
     if(currentPage) {
         
