@@ -25,14 +25,10 @@ NAVBAR - TOP
 .nav-link { font-size: 1.5em;}
 
 
-@keyframes slide {
-    /* 0%  { transform: translate3d(0px, -100px, 0) } */
-    to { transform: translate3d(0px, 0px, 0px) }
-}
 
 .slide-in { 
     transform: translate3d(0px, -100px, 0px); 
-
+    
     -webkit-animation: slide 1s forwards; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: slide 1s forwards; /* Firefox < 16 */
     -ms-animation: slide 1s forwards; /* Internet Explorer */
@@ -40,6 +36,10 @@ NAVBAR - TOP
     animation: slide 1s forwards
 }
 
+@keyframes slide {
+    /* 0%  { transform: translate3d(0px, -100px, 0) } */
+    to { transform: translate3d(0px, 0px, 0px) }
+}
 
 
 /* 
