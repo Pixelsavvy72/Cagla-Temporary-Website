@@ -27,7 +27,7 @@ NAVBAR - TOP
 
 
 .slide-in { 
-    transform: translate3d(0px, -100px, 0px); 
+    transform: translate(0px, -100px); 
     
     -webkit-animation: slide 1s forwards; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: slide 1s forwards; /* Firefox < 16 */
@@ -38,7 +38,7 @@ NAVBAR - TOP
 
 @keyframes slide {
     /* 0%  { transform: translate3d(0px, -100px, 0) } */
-    to { transform: translate3d(0px, 0px, 0px) }
+    to { transform: translate(0px, 0px) }
 }
 
 
