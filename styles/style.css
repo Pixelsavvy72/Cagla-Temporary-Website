@@ -24,19 +24,6 @@ NAVBAR - TOP
 
 .nav-link { font-size: 1.5em;}
 
-
-
-.slide-in { 
-    /* Safari doesn't like shorthand. Had to specify each individually.  */
-    
-    -webkit-animation-name: slide;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-direction:  forwards; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: slide 1s forwards; /* Firefox < 16 */
-    -ms-animation: slide 1s forwards; /* Internet Explorer */
-    -o-animation: slide 1s forwards; /* Opera < 12.1 */
-    animation: slide 1s forwards;
-}
 @-webkit-keyframes slide {
     /* 0%  { transform: translate3d(0px, -100px, 0) } */
     0% { -webkit-transform: translate(0px, -100px); }
@@ -52,6 +39,19 @@ NAVBAR - TOP
     100% { 
         transform: translate(0px, 0px); 
     }
+}
+
+
+.slide-in { 
+    /* Safari doesn't like shorthand. Had to specify each individually.  */
+    
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-direction:  forwards; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: slide 1s forwards; /* Firefox < 16 */
+    -ms-animation: slide 1s forwards; /* Internet Explorer */
+    -o-animation: slide 1s forwards; /* Opera < 12.1 */
+    animation: slide 1s forwards;
 }
 
 
