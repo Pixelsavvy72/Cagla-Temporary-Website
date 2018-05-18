@@ -54,6 +54,8 @@ NAVBAR - TOP
     animation: slide 1s forwards;
 }
 
+/* MUST GO AFTER ALL PAUSEABLE ANIMATION */
+.is-paused { animation-play-state: paused; }
 
 /* 
 -----------------------------
@@ -305,5 +307,3 @@ PAGES
 
 
 
-/* MUST GO AFTER ALL PAUSEABLE ANIMATION */
-.is-paused { animation-play-state: paused; }
