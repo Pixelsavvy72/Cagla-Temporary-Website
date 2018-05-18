@@ -38,8 +38,14 @@ NAVBAR - TOP
 
 @keyframes slide {
     /* 0%  { transform: translate3d(0px, -100px, 0) } */
-    0% { transform: translate(0px, -100px) }
-    100% { transform: translate(0px, 0px) }
+    0% { 
+        -webkit-transform: translate(0px, -100px); 
+        transform: translate(0px, -100px); 
+    }
+    100% { 
+        -webkit-transform: translate(0px, 0px); 
+        transform: translate(0px, 0px); 
+    }
 }
 
 
