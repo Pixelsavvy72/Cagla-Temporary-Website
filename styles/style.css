@@ -29,7 +29,9 @@ NAVBAR - TOP
 .slide-in { 
     /* transform: translate(0px, -100px);  */
     
-    -webkit-animation: slide 1s forwards; /* Safari, Chrome and Opera > 12.1 */
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-direction:  forwards; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: slide 1s forwards; /* Firefox < 16 */
     -ms-animation: slide 1s forwards; /* Internet Explorer */
     -o-animation: slide 1s forwards; /* Opera < 12.1 */
@@ -47,12 +49,8 @@ NAVBAR - TOP
 }
 @-webkit-keyframes slide {
     /* 0%  { transform: translate3d(0px, -100px, 0) } */
-    0% { 
-        -webkit-transform: translate(0px, -100px); 
-    }
-    100% { 
-        -webkit-transform: translate(0px, 0px); 
-    }
+    0% { -webkit-transform: translate(0px, -100px); }
+    100% { -webkit-transform: translate(0px, 0px); }
 }
 
 
