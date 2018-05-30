@@ -277,24 +277,120 @@ PAGES
 .access-map {
     border: 1px solid #188b41;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .6);
+
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+
 }
 
- @keyframes slidePage {
+.access-map iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+@keyframes slidePage {
+    from { transform: translate3d(-110vw, 0, 0) }
     to { transform: translate3d(0, 0, 0) }
 }
- @keyframes slidePageOut {
+@keyframes slidePageOut {
+   from { transform: translate3d(0, 0, 0) }
+   to { transform: translate3d(-110vw, 0, 0) }
+}
+
+
+@keyframes slidePageLeftIn {
+    from { transform: translate3d(-110vw, 0, 0) }
     to { transform: translate3d(0, 0, 0) }
+
+}
+@keyframes slidePageRightIn {
+    from { transform: translate3d(110vw, 0, 0) }
+    to { transform: translate3d(0, 0, 0) }
+    
+}
+@keyframes slidePageUpIn {
+    from { transform: translate3d(0, 310vh, 0) }
+    to { transform: translate3d(0, 0, 0) }
+    
+}
+@keyframes slidePageDownIn {
+    from { transform: translate3d(0, -310vh, 0) }
+    to { transform: translate3d(0, 0, 0) }
+
+}
+@keyframes slidePageLeftOut {
+    from { transform: translate3d(0, 0, 0) }
+    to { transform: translate3d(110vw, 0, 0) }
+}
+@keyframes slidePageRightOut {
+    from { transform: translate3d(0, 0, 0) }
+    to { transform: translate3d(-110vw, 0, 0) }
+}
+@keyframes slidePageUpOut {
+    from { transform: translate3d(0, 0, 0) }
+    to { transform: translate3d(0, 310vh, 0) }
+}
+@keyframes slidePageDownOut {
+    from { transform: translate3d(0, 0, 0) }
+    to { transform: translate3d(0, 310vh, 0) }
 }
 
 .slide-page-in { 
-    transform: translate3d(-110vw, 0, 0); 
+    /* transform: translate3d(-110vw, 0, 0);  */
     animation: slidePage 1.5s forwards;
-    animation-delay: 1s;
+    /* animation-delay: 1s; */
 }  
 .slide-page-out { 
-    transform: translate3d(-110vw, 0, 0); 
-    animation: slidePageOut 1s reverse;
+    /* transform: translate3d(-110vw, 0, 0);  */
+    animation: slidePageOut 1s forwards;
 }  
+
+
+.slide-page-down-in {
+    /* transform: translate3d(0, -110vh, 0);  */
+    animation: slidePageDownIn 1s forwards;
+    /* animation-delay: 1s; */
+}
+.slide-page-up-in {
+    /* transform: translate3d(0, -110vh, 0);  */
+    animation: slidePageUpIn 1s forwards;
+    /* animation-delay: 1s; */
+}
+.slide-page-left-in {
+    /* transform: translate3d(-110vw, 0, 0);  */
+    animation: slidePageLeftIn 1s forwards;
+    /* animation-delay: 1s; */
+}
+.slide-page-right-in {
+    /* transform: translate3d(-110vw, 0, 0);  */
+    animation: slidePageRightIn 1s forwards;
+    /* animation-delay: 1s; */
+}
+.slide-page-down-out {
+    /* transform: translate3d(0, -110vh, 0);  */
+    animation: slidePageDownOut 1s forwards;
+    /* animation-delay: 1s; */
+}
+.slide-page-up-out {
+    /* transform: translate3d(0, -110vh, 0);  */
+    animation: slidePageUpOut 1s forwards;
+    /* animation-delay: 1s; */
+}
+.slide-page-left-out {
+    /* transform: translate3d(-110vw, 0, 0);  */
+    animation: slidePageLeftOut 1s forwards;
+    /* animation-delay: 1s; */
+}
+.slide-page-right-out {
+    /* transform: translate3d(-110vw, 0, 0);  */
+    animation: slidePageRightOut 1s forwards;
+    /* animation-delay: 1s; */
+}
 
 
 @media (min-width: 300px) and (max-width: 767px) {
