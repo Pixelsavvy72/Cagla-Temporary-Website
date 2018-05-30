@@ -126,6 +126,8 @@ CAGLA BRAND WITH FADE-IN
 .caglaBrand {
     position: relative;
     z-index: 50;    
+    margin: 0;
+    padding:0;
 }
 
 .overlay {
@@ -141,7 +143,6 @@ CAGLA BRAND WITH FADE-IN
 }
 
 #cagla_logo h1 {
-    
     color: white;
     font-size: 5em;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
@@ -213,6 +214,9 @@ CAGLA BRAND WITH FADE-IN
     70% { opacity: 0; }
     100%  { opacity: 1; }
 }
+
+
+
 
 
 /* 

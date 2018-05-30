@@ -73,6 +73,14 @@ function scaleBannerVideoSize(element){
 // --------------------------------
 // NAVIGATION and PAGES
 // --------------------------------
+
+// Hide navbar hamburger when item selected:
+$('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});
+
+
+
 let currentPage;
 
 let topImage = document.getElementById('topImageContainer');
