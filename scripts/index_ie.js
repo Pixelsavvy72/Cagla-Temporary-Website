@@ -1,7 +1,5 @@
 'use strict';
 
-// ENGLISH ONLY SYTLING FINISHED
-
 // --------------------------------
 // TOP IMAGE
 // --------------------------------
@@ -70,6 +68,12 @@ function scaleBannerVideoSize(element) {
 // --------------------------------
 // NAVIGATION and PAGES
 // --------------------------------
+
+// Hide navbar hamburger when item selected:
+$('.navbar-nav>li>a').on('click', function () {
+    $('.navbar-collapse').collapse('hide');
+});
+
 var currentPage = void 0;
 
 var topImage = document.getElementById('topImageContainer');
@@ -80,6 +84,7 @@ var servicesLink = document.getElementById('services-link');
 var productsLink = document.getElementById('products-link');
 var accessLink = document.getElementById('access-link');
 var teamLink = document.getElementById('team-link');
+
 // Current link is for language button redirect.
 var currentLink = void 0;
 
@@ -112,11 +117,15 @@ langButton.addEventListener('click', function () {
 
     if (currentPage) {
 
-        console.log(currentPage);
-        currentPage.classList.remove(removeSlideClasses());
+        currentPage.classList.remove(removeSlideClasses(currentPage));
         currentPage.classList.remove('is-visible');
-        currentPage.classList.add(getRandomDirection());
+        currentPage.classList.add(getRandomDirectionOUT());
+        hidePage(currentPage);
         currentPage = null;
+    } else {
+        currentPage = aboutPageEn;
+
+        currentLink = aboutLink;
     }
 
     if (currentLang === 0) {
@@ -129,7 +138,6 @@ langButton.addEventListener('click', function () {
     console.log(currentLang);
     console.log(document.documentElement.lang);
 
-    // Change to update programatically later.
     currentLink.click();
 });
 
@@ -183,6 +191,7 @@ topImage.addEventListener('click', function () {
 // Adjustments can be made to the following two RANDOM functions to control direction and
 // flow of the pages.
 
+// Slide page in from a random direction.
 var getRandomDirectionIN = function getRandomDirectionIN() {
     var randomNumber = Math.random() * 10 + 1;
     if (randomNumber >= 0 && randomNumber <= 2.5) {
@@ -200,6 +209,7 @@ var getRandomDirectionIN = function getRandomDirectionIN() {
     }
 };
 
+// Slide page out from a random  direction.
 var getRandomDirectionOUT = function getRandomDirectionOUT() {
     var randomNumber = Math.random() * 10 + 1;
     if (randomNumber >= 0 && randomNumber <= 2.5) {
@@ -217,6 +227,7 @@ var getRandomDirectionOUT = function getRandomDirectionOUT() {
     }
 };
 
+// Remove class names for use when page slides out.
 var removeSlideClasses = function removeSlideClasses(pageName) {
     if (pageName.classList.contains('slide-page-in')) {
         pageName.classList.remove('slide-page-in');
@@ -241,6 +252,14 @@ var removeSlideClasses = function removeSlideClasses(pageName) {
     }
 };
 
+// Hide the page so different pages don't stack on top of one another.
+// Delay needed to allow pages to slide out of view first and not just disappear.
+var hidePage = function hidePage(currentPage) {
+    setTimeout(function () {
+        currentPage.setAttribute('style', 'display:none');
+    }, 1000);
+};
+
 aboutLink.addEventListener('click', function () {
     currentLink = aboutLink;
     // If a page is open, close it by removing slide classes and set no current page.
@@ -248,6 +267,11 @@ aboutLink.addEventListener('click', function () {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
         currentPage.classList.remove('is-visible');
+        // Checks to make sure the current page isn't the English version to prevent immediate
+        // closing on laguage button change.
+        if (currentPage.id !== aboutPageEn.id) {
+            hidePage(currentPage);
+        }
         currentPage = null;
     }
 
@@ -285,6 +309,7 @@ servicesLink.addEventListener('click', function () {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
         currentPage.classList.remove('is-visible');
+        hidePage(currentPage);
         currentPage = null;
     }
 
@@ -321,6 +346,7 @@ accessLink.addEventListener('click', function () {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
         currentPage.classList.remove('is-visible');
+        hidePage(currentPage);
         currentPage = null;
     }
 

@@ -269,7 +269,11 @@ PAGES
     border: none; 
 }
 
-.about-cards img {-webkit-filter: grayscale(100%); filter: grayscale(100%);}
+.about-cards img {
+    -webkit-filter: grayscale(100%); filter: grayscale(100%);
+    width: auto;
+
+}
 
 .about-cards img:hover {
     animation: toColor .5s forwards; 
