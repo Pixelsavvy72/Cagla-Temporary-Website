@@ -124,22 +124,17 @@ CAGLA BRAND WITH FADE-IN
 
 
 .caglaBrand {
-    position: relative;
-    z-index: 50;    
-    margin: 0;
-    padding:0;
+    
+    position: absolute;
+    top: 40vh;
+    
 }
 
 .overlay {
-    float: left;
-    position: absolute;
     color: #e7e8dc;
-    font-family: 'Noto Sans', sans-serif;
-    margin-top: -55vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-weight: 700;
-
+    font-family: 'Noto Sans', sans-serif;
+    
 }
 
 #cagla_logo h1 {
@@ -169,7 +164,7 @@ CAGLA BRAND WITH FADE-IN
         
 }
 
-#cagla_logoCatch h2:first-child { margin-top: 7em; }
+#cagla_logoCatch h2:first-child { margin-top: 2em; }
 
 #cagla_logoCatch h2:nth-child(2) {
     -webkit-animation: fadein 7s; /* Safari, Chrome and Opera > 12.1 */
@@ -463,15 +458,14 @@ table.company td {
 }
 
 
-@media (min-width: 300px) and (max-width: 767px) {
+@media (min-width: 150px) and (max-width: 767px) {
     #cagla_logo h1 {
         font-size: 3em;
-        margin-bottom: 3em;
+        font-weight: 900;
     }
     
     #cagla_logoCatch h2 {
         font-size: 1.75em;
-        margin-top: 3em;
    
     }
 
