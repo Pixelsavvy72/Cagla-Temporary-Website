@@ -297,6 +297,72 @@ PAGES
     position:absolute;
 }
 
+
+/* -----------------------------------
+COMPANY PROFILE TABLE
+----------------------------------- */
+
+/*.会社概要テーブル.*/
+table.company {
+    width: 70%;
+    /* margin: 0 auto; */
+    min-width: 370px;
+/*    border-collapse: separate;*/
+    border: none;
+    border-spacing: 0px 15px;
+    font-size: 12px;
+    background: #eeefef;
+}
+
+table.company th,
+table.company td {
+    padding: 10px;
+}
+
+table.company th {
+    background: #188b41;
+    vertical-align: middle;
+    text-align: center;
+    width: 100px;
+    overflow: visible;
+    position: relative;
+    color: #fff;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+table.company th:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-left-color: #188b41;
+    border-width: 10px;
+    margin-top: -10px;
+}
+
+table.company td {
+    background: #eeefef;
+    border: 1px solid #188b41;
+    text-align: left;
+    width: 80%;
+    max-width: 600px;
+    padding-left: 20px;
+}
+
+
+
+
+
+
+
+
+
 @keyframes slidePage {
     from { transform: translate3d(-110vw, 0, 0) }
     to { transform: translate3d(0, 0, 0) }
