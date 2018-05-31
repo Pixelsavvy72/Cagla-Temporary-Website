@@ -19,6 +19,10 @@ NAVBAR - TOP
 -----------------------------
 */
 
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+}
+
 #navbar-top {
     /* display: none; */
     position: absolute;
@@ -48,6 +52,8 @@ NAVBAR - TOP
         transform: translate(0px, 0px); 
     }
 }
+
+
 
 
 .slide-in { 
@@ -268,9 +274,6 @@ PAGES
 .about-cards img:hover {
     animation: toColor .5s forwards; 
 }
-
-
-
 
 .card-title {
     color: #188b41;
