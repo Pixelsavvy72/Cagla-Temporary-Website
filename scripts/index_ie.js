@@ -1,5 +1,7 @@
 'use strict';
 
+// ENGLISH ONLY SYTLING FINISHED
+
 // --------------------------------
 // TOP IMAGE
 // --------------------------------
@@ -113,7 +115,7 @@ var currentLang = 0; // default is 0 / japanese
 var langButtonText = document.getElementById('button-text');
 langButtonText.textContent = "日本語 / English";
 langButton.addEventListener('click', function () {
-    currentLang === 0 ? langButtonText.textContent = "English" : langButtonText.textContent = "日本語";
+    currentLang === 0 ? langButtonText.textContent = "日本語" : langButtonText.textContent = "English";
 
     if (currentPage) {
 
