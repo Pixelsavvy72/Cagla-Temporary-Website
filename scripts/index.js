@@ -281,7 +281,7 @@ let hidePage = (currentPage) => {
 aboutLink.addEventListener('click', () => {
     currentLink = aboutLink;
     // If a page is open, close it by removing slide classes and set no current page.
-    if(currentPage && currentPage !== aboutPage) {
+    if(currentPage && currentPage !== aboutPage && currentPage !== aboutPageEn) {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
         currentPage.classList.remove('is-visible');
