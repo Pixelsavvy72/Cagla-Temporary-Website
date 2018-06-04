@@ -272,6 +272,7 @@ let removeSlideClasses = (pageName) => {
 // Hide the page so different pages don't stack on top of one another.
 // Delay needed to allow pages to slide out of view first and not just disappear.
 let hidePage = (currentPage) => {
+    // TODO: Add check here? To make sure page being hidden is different link.
     setTimeout(function() {
         currentPage.setAttribute('style', 'display:none');
     }, 1000 );
@@ -280,15 +281,15 @@ let hidePage = (currentPage) => {
 aboutLink.addEventListener('click', () => {
     currentLink = aboutLink;
     // If a page is open, close it by removing slide classes and set no current page.
-    if(currentPage) {
+    if(currentPage && currentPage !== aboutPage) {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
         currentPage.classList.remove('is-visible');
         // Checks to make sure the current page isn't the English version to prevent immediate
         // closing on laguage button change.
-        if(currentPage.id !== aboutPageEn.id) {
-            hidePage(currentPage);
-        }
+        // if(currentPage.id !== aboutPageEn.id) {
+        //     hidePage(currentPage);
+        // }
         currentPage = null;
     }
 
