@@ -1,7 +1,4 @@
 'use strict';
-
-// ENGLISH ONLY SYTLING FINISHED
-
 // --------------------------------
 // TOP IMAGE
 // --------------------------------
@@ -265,7 +262,8 @@ var hidePage = function hidePage(currentPage) {
 
 aboutLink.addEventListener('click', function () {
     currentLink = aboutLink;
-    // If a page is open, close it by removing slide classes and set no current page.
+    // If a page is open and it isn't the current page,
+    // close it by removing slide classes and set no current page.
     if (currentPage && currentPage !== aboutPage && currentPage !== aboutPageEn) {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
@@ -307,8 +305,9 @@ aboutLink.addEventListener('click', function () {
 
 servicesLink.addEventListener('click', function () {
     currentLink = servicesLink;
-    // If a page is open, close it.
-    if (currentPage) {
+    // If a page is open and it isn't the current page,
+    // close it by removing slide classes and set no current page.
+    if (currentPage && currentPage !== servicesPage && currentPage !== servicesPageEn) {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
         currentPage.classList.remove('is-visible');
@@ -344,8 +343,9 @@ servicesLink.addEventListener('click', function () {
 
 accessLink.addEventListener('click', function () {
     currentLink = accessLink;
-    // If a page is open, close it by removing slide classes and set no current page.
-    if (currentPage) {
+    // If a page is open and it isn't the current page,
+    // close it by removing slide classes and set no current page.
+    if (currentPage && currentPage !== accessPage && currentPage !== accessPageEn) {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
         currentPage.classList.remove('is-visible');
