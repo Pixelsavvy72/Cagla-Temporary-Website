@@ -28,9 +28,9 @@ h1, h2 {
 
 hr {
     max-width: 87%;
-    margin: 4em auto 2em 0;
+    margin: 4em auto 2em auto;
     border: none;
-    background-color: #188b40a2;
+    background-color: #24a04fa2;
     height: 1px;
 }
 
@@ -349,7 +349,7 @@ COMPANY PROFILE TABLE
 /*.会社概要テーブル.*/
 table.company {
     width: 70%;
-    /* margin: 0 auto; */
+    margin: 0 auto;
     min-width: 370px;
 /*    border-collapse: separate;*/
     border: none;
