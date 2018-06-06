@@ -285,11 +285,7 @@ aboutLink.addEventListener('click', () => {
         removeSlideClasses(currentPage);
         currentPage.classList.add(getRandomDirectionOUT());
         currentPage.classList.remove('is-visible');
-        // Checks to make sure the current page isn't the English version to prevent immediate
-        // closing on laguage button change.
-        // if(currentPage.id !== aboutPageEn.id) {
-        //     hidePage(currentPage);
-        // }
+        hidePage(currentPage);
         currentPage = null;
     }
 
